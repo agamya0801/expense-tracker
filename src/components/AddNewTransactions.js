@@ -13,7 +13,12 @@ function AddNewTransactions() {
           placeholder='New text'
           required
         />
-        <label className='label'>Amount</label>
+        <label className='label'>
+          <div className='amount'>
+            <p className='p'>Amount</p>
+            <p className='p'>(negative-expense, positive-income)</p>
+          </div>
+        </label>
         <input 
           className='input-field'
           type="text"

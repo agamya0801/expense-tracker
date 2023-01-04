@@ -93,3 +93,12 @@
   border-left: 2px solid #ddd;
   height: 50px;
 }
+
+.amount{
+  display: flex;
+  flex-direction: column;
+}
+
+.p{
+  margin: 0;
+}
