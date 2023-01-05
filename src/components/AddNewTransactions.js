@@ -1,23 +1,21 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 
 function AddNewTransactions() {
   const [text, setText] = useState('');
-  const [amount, setAmount] = useState('');
+  const [amount, setAmount] = useState(0);
 
-  const handleTextChange = (event) => {
-    console.log(event);
-    setText(event.target.value);
+  const handleTextChange = event => {
+    setText(event.target.value)
   }
 
-  const handleAmountChange = (event) => {
-    setAmount(event.target.value);
+  const handleAmountChange = event => {
+    setAmount(event.target.value)
   }
 
-  const handleSubmit = event => {
-    const isPositive = amount[0] === '-' ? false : true
-    const printable_amt = Boolean(isPositive) ? amount : amount.substring(1);
-    Boolean(isPositive) ? alert(`Recieved ${printable_amt}`) : alert(`Deducted ${printable_amt}`)
-    event.preventDefault();
+  const handleSubmit = () => {
+    const isPositiveAmount = amount < 0 ? false : true;
+    const printableAmount = Boolean(isPositiveAmount) ? amount : (-1 * amount);
+    Boolean(isPositiveAmount) ? alert(`Recieved: ${printableAmount}`) : alert(`Deducted ${printableAmount}`);
     setText('');
     setAmount('');
   }
@@ -30,11 +28,10 @@ function AddNewTransactions() {
         <label className='label'>Text</label>
         <input 
           className='input-field'
-          name='text_input'
-          type="text"
+          type='text'
           placeholder='Enter text'
-          onChange={handleTextChange}
           value={text}
+          onChange={handleTextChange}
         />
         <label className='label'>
           <div className='amount'>
@@ -44,11 +41,10 @@ function AddNewTransactions() {
         </label>
         <input 
           className='input-field'
-          name='amount_input'
-          type="text"
-          placeholder='0.00'
-          onChange={handleAmountChange}
+          type='text'
+          placeholder='Amount'
           value={amount}
+          onChange={handleAmountChange}
         />
         <button className='add-txn-button' type='submit'>Add Transaction</button>
       </form>
