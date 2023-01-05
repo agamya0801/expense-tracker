@@ -1,17 +1,37 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function AddNewTransactions() {
+  const [text, setText] = useState('');
+  const [amount, setAmount] = useState(0);
+
+  const handleTextChange = event => {
+    setText(event.target.value)
+  }
+
+  const handleAmountChange = event => {
+    setAmount(event.target.value)
+  }
+
+  const handleSubmit = () => {
+    const isPositiveAmount = amount < 0 ? false : true;
+    const printableAmount = Boolean(isPositiveAmount) ? amount : (-1 * amount);
+    Boolean(isPositiveAmount) ? alert(`Recieved: ${printableAmount}`) : alert(`Deducted ${printableAmount}`);
+    setText('');
+    setAmount('');
+  }
+
   return (
     <div className='new-txn-container'>
       <h3 className='col-h3'>Add New Transactions</h3>
       <hr className='horizontal-line' />
-      <form className='new-txn-form'>
+      <form className='new-txn-form' onSubmit={handleSubmit}>
         <label className='label'>Text</label>
         <input 
           className='input-field'
-          type="text"
-          placeholder='New text'
-          required
+          type='text'
+          placeholder='Enter text'
+          value={text}
+          onChange={handleTextChange}
         />
         <label className='label'>
           <div className='amount'>
@@ -21,12 +41,13 @@ function AddNewTransactions() {
         </label>
         <input 
           className='input-field'
-          type="text"
+          type='text'
           placeholder='Amount'
-          required
+          value={amount}
+          onChange={handleAmountChange}
         />
+        <button className='add-txn-button' type='submit'>Add Transaction</button>
       </form>
-      <button className='add-txn-button'>Add Transaction</button>
     </div>
   )
 }
