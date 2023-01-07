@@ -2,8 +2,8 @@ import React from 'react';
 
 function IncomeExpense(props) {
   const {transactions} = props;
-  let netIncome = 0;
-  let netExpense = 0;
+  let netIncome = '0.00';
+  let netExpense = '0.00';
 
   // Traversing the transactions array for calculating netIncome and netExpense
   transactions.forEach((element) => {

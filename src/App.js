@@ -22,7 +22,7 @@ function App() {
       <Header />
       <Balance transactions={txn}/>
       <IncomeExpense transactions={txn}/>
-      <History />
+      <History transactions={txn}/>
       <AddNewTransactions onSubmitHandler={addTxn}/>
     </div>
   );
