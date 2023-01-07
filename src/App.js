@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import './App.css';
 import Balance from './components/Balance';
 import Header from './components/Header';
@@ -6,13 +7,23 @@ import History from './components/History';
 import AddNewTransactions from './components/AddNewTransactions';
 
 function App() {
+  // State management for transactions
+  const [txn, setTxn] = useState([])
+
+  const addTxn = (text, amount) => {
+    const cloneTxn = [...txn];
+    const isPositiveAmount = amount >= 0;
+    cloneTxn.push({text, amount, isPositiveAmount});
+    setTxn(cloneTxn);
+  }
+
   return (
     <div className='main-container'>
       <Header />
-      <Balance />
-      <IncomeExpense />
+      <Balance transactions={txn}/>
+      <IncomeExpense transactions={txn}/>
       <History />
-      <AddNewTransactions />
+      <AddNewTransactions onSubmitHandler={addTxn}/>
     </div>
   );
 }
