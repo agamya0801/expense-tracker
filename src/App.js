@@ -12,8 +12,7 @@ function App() {
 
   const addTxn = (text, amount) => {
     const cloneTxn = [...txn];
-    const isPositiveAmount = amount >= 0;
-    cloneTxn.push({text, amount, isPositiveAmount});
+    cloneTxn.push({text, amount});
     setTxn(cloneTxn);
   }
 

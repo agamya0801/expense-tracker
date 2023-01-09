@@ -18,9 +18,10 @@ function AddNewTransactions(props) {
   // For handling the submit event
   const handleSubmit = (event) => {
     event.preventDefault();
+    const refactoredText = text.charAt(0).toUpperCase() + text.slice(1)
+    onSubmitHandler(refactoredText, amount)
     setText('');
     setAmount('');
-    onSubmitHandler(text, amount)
   }
 
   return (
@@ -35,6 +36,7 @@ function AddNewTransactions(props) {
               placeholder='Enter text'
               value={text}
               onChange={handleTextChange}
+              required
             />
             <label className='label'>
               <div className='amount'>
@@ -48,6 +50,7 @@ function AddNewTransactions(props) {
               placeholder='Enter Amount'
               value={amount}
               onChange={handleAmountChange}
+              required
             />
             <button className='add-txn-button' type='submit'>Add Transaction</button>
           </form>
