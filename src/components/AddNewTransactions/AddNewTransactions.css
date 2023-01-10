@@ -1,0 +1,52 @@
+.new-txn-container{
+    margin: 32px 0px;
+}
+
+.new-txn-title{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.horizontal-line{
+    margin-bottom: 16px;
+}
+
+.new-txn-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.label{
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.input-field{
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0px 8px;
+    height: 2rem;
+    font-size: 14px;
+}
+
+.p{
+    margin: 0;
+}
+
+.add-txn-button{
+    margin-top: 16px;
+    background-color: #7a61cf;
+    width: 100%;
+    padding: 12px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+}
+
+button:hover{
+    cursor: pointer;
+}

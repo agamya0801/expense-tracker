@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react'
+import './AddNewTransactions.css'
 
 function AddNewTransactions(props) {
   const {onSubmitHandler} = props;
@@ -28,7 +29,7 @@ function AddNewTransactions(props) {
 
   return (
         <div className='new-txn-container'>
-          <h3 className='col-h3'>Add New Transactions</h3>
+          <p className='new-txn-title'>Add New Transactions</p>
           <hr className='horizontal-line' />
           <form className='new-txn-form' onSubmit={handleSubmit}>
             <label className='label'>Text</label>

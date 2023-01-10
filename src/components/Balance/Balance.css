@@ -1,0 +1,23 @@
+.balance-container{
+    margin-bottom: 16px;
+}
+
+.balance-title{
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.balance-amount{
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.positive-text{
+    color: green;
+}
+
+.negative-text{
+    color: red;
+}

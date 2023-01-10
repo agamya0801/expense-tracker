@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react'
 import './App.css';
-import Balance from './components/Balance';
-import Header from './components/Header';
-import IncomeExpense from './components/IncomeExpense';
-import History from './components/History';
-import AddNewTransactions from './components/AddNewTransactions';
+import Balance from './components/Balance/Balance';
+import Header from './components/Header/Header';
+import IncomeExpense from './components/IncomeExpense/IncomeExpense';
+import History from './components/History/History';
+import AddNewTransactions from './components/AddNewTransactions/AddNewTransactions';
 
 function App() {
   // Local storage used for storing the transactions using the useEffect Hook
