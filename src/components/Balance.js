@@ -15,7 +15,7 @@ function Balance(props) {
   return (
     <>
       <p className='p'>YOUR BALANCE</p>
-      <h1 className={`rem-balance ${color}`}>${netBalance}</h1>
+      <h1 className={`rem-balance ${color}`}>{`\u20b9${netBalance}`}</h1>
     </>
   )
 }

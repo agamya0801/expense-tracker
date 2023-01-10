@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import './App.css';
 import Balance from './components/Balance';
 import Header from './components/Header';
@@ -7,9 +7,14 @@ import History from './components/History';
 import AddNewTransactions from './components/AddNewTransactions';
 
 function App() {
-  // State management for transactions
-  const [txn, setTxn] = useState([])
+  // Local storage used for storing the transactions using the useEffect Hook
+  const [txn, setTxn] = useState(JSON.parse(window.localStorage.getItem('storedTxn')) || [])
 
+  useEffect(() => {
+    window.localStorage.setItem('storedTxn', JSON.stringify(txn));
+  })
+  
+  // State management for transactions
   const addTxn = (text, amount) => {
     const prevState = [...txn];
     prevState.push({text, amount});
