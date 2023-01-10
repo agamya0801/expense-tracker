@@ -1,15 +1,15 @@
 .new-txn-container{
-    margin: 32px 0px;
+    margin: 2rem 0rem;
 }
 
 .new-txn-title{
     margin: 0;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 500;
 }
 
 .horizontal-line{
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
 .new-txn-form{
@@ -19,17 +19,17 @@
 
 .label{
     font-weight: 400;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .input-field{
-    margin-top: 8px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 0px 8px;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.3125rem;
+    padding: 0rem 0.5rem;
     height: 2rem;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .p{
@@ -37,13 +37,13 @@
 }
 
 .add-txn-button{
-    margin-top: 16px;
+    margin-top: 1rem;
     background-color: #7a61cf;
     width: 100%;
-    padding: 12px 12px;
+    padding: 0.75rem;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 0.3125rem;
+    font-size: 1rem;
     color: white;
 }
 

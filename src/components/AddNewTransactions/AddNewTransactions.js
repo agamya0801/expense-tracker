@@ -1,4 +1,5 @@
 import React, {useState, useRef} from 'react'
+import { refactorText } from '../../functions';
 import './AddNewTransactions.css'
 
 function AddNewTransactions(props) {
@@ -20,7 +21,7 @@ function AddNewTransactions(props) {
   // For handling the submit event
   const handleSubmit = (event) => {
     event.preventDefault();
-    const refactoredText = text.charAt(0).toUpperCase() + text.slice(1)
+    const refactoredText = refactorText(text)
     onSubmitHandler(refactoredText, amount)
     inputRef.current.focus()
     setText('');

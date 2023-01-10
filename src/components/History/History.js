@@ -1,4 +1,5 @@
 import React from 'react'
+import { assignSign, assignStripColor, concatenateText } from '../../functions';
 import './History.css'
 
 function History(props) {
@@ -11,10 +12,10 @@ function History(props) {
         <hr className='horizontal-line'/>
         <div className='list'>
           {transactions.map((element) => {
-            const sign = element.amount >= 0 ? '+' : '-';
-            const strip_color = element.amount >= 0 ? "positive" : "negative";
+            const sign = assignSign(element.amount);
+            const strip_color = assignStripColor(element.amount);
             const newAmount = element.amount < 0 ? element.amount.slice(1) : element.amount;
-            const newText = element.text.length > 16 ? (element.text.substring(0, 16)).concat('...') : element.text;
+            const newText = concatenateText(element.text);
             return <div className='list-items'>
               <div className='list-items-content'>
                 <p className='item-text'>{newText}</p>

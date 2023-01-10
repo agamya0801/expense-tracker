@@ -17,7 +17,7 @@ function App() {
   // State management for transactions
   const addTxn = (text, amount) => {
     const prevState = [...txn];
-    prevState.push({text, amount});
+    prevState.unshift({text, amount});
     setTxn(prevState);
   }
 
