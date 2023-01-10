@@ -11,9 +11,9 @@ function App() {
   const [txn, setTxn] = useState([])
 
   const addTxn = (text, amount) => {
-    const cloneTxn = [...txn];
-    cloneTxn.push({text, amount});
-    setTxn(cloneTxn);
+    const prevState = [...txn];
+    prevState.push({text, amount});
+    setTxn(prevState);
   }
 
   return (

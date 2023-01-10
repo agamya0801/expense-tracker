@@ -44,7 +44,7 @@
 
 .col-h3{
   margin: 0%;
-  font-size: 20px;
+  font-size: 12px;
 }
 
 .history-container{
@@ -108,6 +108,15 @@
 
 button:hover{
   cursor: pointer;
+}
+
+.history-parent{
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.history-parent::-webkit-scrollbar {
+  display: none;
 }
 
 .history-list-items{

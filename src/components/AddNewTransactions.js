@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 
 function AddNewTransactions(props) {
   const {onSubmitHandler} = props;
   const [text, setText] = useState('');
   const [amount, setAmount] = useState('');
+  const inputRef = useRef();
 
   // For Handling the changes in text field
   const handleTextChange = event => {
@@ -20,6 +21,7 @@ function AddNewTransactions(props) {
     event.preventDefault();
     const refactoredText = text.charAt(0).toUpperCase() + text.slice(1)
     onSubmitHandler(refactoredText, amount)
+    inputRef.current.focus()
     setText('');
     setAmount('');
   }
@@ -37,6 +39,7 @@ function AddNewTransactions(props) {
               value={text}
               onChange={handleTextChange}
               required
+              ref={inputRef}
             />
             <label className='label'>
               <div className='amount'>
