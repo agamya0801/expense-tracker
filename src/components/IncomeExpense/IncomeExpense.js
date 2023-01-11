@@ -6,22 +6,25 @@ function IncomeExpense(props) {
   const {transactions} = props;
   let netIncome = '0.00';
   let netExpense = '0.00';
+  let isRounded = true;
 
   // Traversing the transactions array for calculating netIncome and netExpense
   transactions.forEach((element) => {
     if(element.amount >= 0){
       netIncome = (parseFloat(netIncome) + parseFloat(element.amount)).toFixed(2);
-      const isRounded = checkRounded(netIncome);
-      netIncome = truncateAmount(parseFloat(netIncome));
-      netIncome = concatPositiveAmountWithK({netIncome, isRounded});
     } 
     else{
       netExpense = (parseFloat(netExpense) - parseFloat(element.amount)).toFixed(2);
-      const isRounded = checkRounded(netExpense);
-      netExpense = truncateAmount(parseFloat(netExpense));
-      netExpense = concatNegativeAmountWithK({netExpense, isRounded});
     }
   });
+
+  isRounded = checkRounded(netIncome);
+  netIncome = truncateAmount(parseFloat(netIncome));
+  netIncome = concatPositiveAmountWithK({netIncome, isRounded});
+
+  isRounded = checkRounded(netExpense);
+  netExpense = truncateAmount(parseFloat(netExpense));
+  netExpense = concatNegativeAmountWithK({netExpense, isRounded});
 
   return (
     <div className='income-expense-container'>

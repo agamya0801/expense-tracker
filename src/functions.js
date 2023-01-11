@@ -17,19 +17,11 @@ export function concatenateText(text){
 }
 
 export function checkRounded(amount){
-    return amount >= 10000000 ? true : false;
+    return parseFloat(amount) >= 10000000 ? true : false || parseFloat(amount) >= -10000000 ? true : false;
 }
 
 export function truncateAmount(amount){
-    if(amount < 100000){
-        return amount;
-    }
-    else if(amount >= 100000 && amount < 10000000000){
-        return (amount/100000).toFixed(2);
-    }
-    else{
-        return (amount/10000000000).toFixed(2);
-    }
+    return (amount/10000000).toFixed(2);
 }
 
 export function concatPositiveAmountWithK(props){
