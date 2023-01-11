@@ -3,7 +3,10 @@
 .main-container{
   display: flex;
   flex-direction: column;
-  margin: auto;
   background-color: #f7f7f6;
-  padding: 1rem;
+  padding: 0.8rem;
+}
+
+.horizontal-line{
+  margin-bottom: 1rem;
 }

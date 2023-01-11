@@ -1,12 +1,11 @@
-import React, {useState, useRef} from 'react'
-import { refactorText } from '../../functions';
+import React, {useState} from 'react'
 import './AddNewTransactions.css'
 
 function AddNewTransactions(props) {
   const {onSubmitHandler} = props;
   const [text, setText] = useState('');
   const [amount, setAmount] = useState('');
-  const inputRef = useRef();
+  // const inputRef = useRef();
 
   // For Handling the changes in text field
   const handleTextChange = event => {
@@ -21,9 +20,8 @@ function AddNewTransactions(props) {
   // For handling the submit event
   const handleSubmit = (event) => {
     event.preventDefault();
-    const refactoredText = refactorText(text)
+    const refactoredText = text.charAt(0).toUpperCase() + text.slice(1);
     onSubmitHandler(refactoredText, amount)
-    inputRef.current.focus()
     setText('');
     setAmount('');
   }
@@ -41,12 +39,12 @@ function AddNewTransactions(props) {
               value={text}
               onChange={handleTextChange}
               required
-              ref={inputRef}
+              autoFocus
             />
             <label className='label'>
               <div className='amount'>
-                <p className='p'>Amount</p>
-                <p className='p'>(negative-expense, positive-income)</p>
+                <p className='amount-subheading'>Amount</p>
+                <p className='amount-subheading'>(negative-expense, positive-income)</p>
               </div>
             </label>
             <input 
