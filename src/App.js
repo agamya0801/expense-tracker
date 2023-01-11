@@ -8,7 +8,7 @@ import AddNewTransactions from './components/AddNewTransactions/AddNewTransactio
 
 function App() {
   // Local storage used for storing the transactions using the useEffect Hook
-  const [txn, setTxn] = useState(JSON.parse(window.localStorage.getItem('storedTxn')) || [])
+  const [txn, setTxn] = useState(JSON.parse(window.localStorage.getItem('storedTxn')) || [{text: "", amount: "0"}])
 
   useEffect(() => {
     window.localStorage.setItem('storedTxn', JSON.stringify(txn));
