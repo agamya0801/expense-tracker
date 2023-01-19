@@ -1,7 +1,5 @@
 import React from 'react'
-import { assignSign } from '../../utils/assignSign'
-import { checkRounded } from '../../utils/checkRounded';
-import { truncateAmount } from '../../utils/truncateAmount';
+import { checkSign, checkRounded, truncateAmount } from '../../utils/AmountUtils'
 import './Balance.css'
 
 function Balance(props) {
@@ -10,7 +8,7 @@ function Balance(props) {
   // Traversing the transactions array and calculating the net balance
   let netBalance = transactions.reduce((accumulator, element) => accumulator+parseFloat(element.amount), 0)
 
-  const sign = assignSign(netBalance);
+  const sign = checkSign(netBalance);
   const isRounded = checkRounded(netBalance);
   const color = parseFloat(netBalance) >= 0 ? "positive-text" : "negative-text"
   netBalance = truncateAmount(parseFloat(netBalance));

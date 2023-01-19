@@ -1,6 +1,5 @@
 import React from 'react';
-import { checkRounded } from '../../utils/checkRounded';
-import { truncateAmount } from '../../utils/truncateAmount';
+import { checkRounded, truncateAmount } from '../../utils/AmountUtils';
 import './IncomeExpense.css';
 
 function IncomeExpense(props) {

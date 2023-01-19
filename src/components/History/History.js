@@ -1,5 +1,5 @@
 import React from 'react'
-import { assignSign } from '../../utils/assignSign';
+import { checkSign } from '../../utils/AmountUtils';
 import './History.css'
 import HistoryList from './HistoryList';
 
@@ -14,7 +14,7 @@ function History(props) {
           <div className='list'>
             {transactions.filter(element => element.text !== "" && element.amount !== '0')
             .map((element) => {
-              const sign = assignSign(element.amount);
+              const sign = checkSign(element.amount);
               const strip_color = element.amount >= 0 ? "positive" : "negative";
               const newAmount = element.amount < 0 ? element.amount.slice(1) : element.amount;
               const newText = element.text.length > 16 ? (element.text.substring(0, 16)).concat('...') : element.text;
