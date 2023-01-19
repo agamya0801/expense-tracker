@@ -1,20 +1,24 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import './App.css';
-import Balance from './components/Balance';
-import Header from './components/Header';
-import IncomeExpense from './components/IncomeExpense';
-import History from './components/History';
-import AddNewTransactions from './components/AddNewTransactions';
+import Balance from './components/Balance/Balance';
+import Header from './components/Header/Header';
+import IncomeExpense from './components/IncomeExpense/IncomeExpense';
+import History from './components/History/History';
+import AddNewTransactions from './components/AddNewTransactions/AddNewTransactions';
 
 function App() {
-  // State management for transactions
-  const [txn, setTxn] = useState([])
+  // Local storage used for storing the transactions using the useEffect Hook
+  const [txn, setTxn] = useState(JSON.parse(window.localStorage.getItem('storedTxn')) || [{text: "", amount: "0"}])
 
+  useEffect(() => {
+    window.localStorage.setItem('storedTxn', JSON.stringify(txn));
+  })
+  
+  // State management for transactions
   const addTxn = (text, amount) => {
-    const cloneTxn = [...txn];
-    const isPositiveAmount = amount >= 0;
-    cloneTxn.push({text, amount, isPositiveAmount});
-    setTxn(cloneTxn);
+    const prevState = [...txn];
+    prevState.unshift({text, amount});
+    setTxn(prevState);
   }
 
   return (
@@ -22,7 +26,7 @@ function App() {
       <Header />
       <Balance transactions={txn}/>
       <IncomeExpense transactions={txn}/>
-      <History />
+      <History transactions={txn}/>
       <AddNewTransactions onSubmitHandler={addTxn}/>
     </div>
   );
